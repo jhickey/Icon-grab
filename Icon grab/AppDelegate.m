@@ -12,7 +12,29 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    // Insert code here to initialize your application
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *storedPath = [defaults stringForKey:@"Path"];
+    [_pathLabel setStringValue:storedPath];
 }
 
+- (IBAction)saveButton:(id)sender {
+    NSOpenPanel *opanel = [NSOpenPanel openPanel];
+
+    [opanel setCanChooseDirectories:YES];
+    [opanel setCanChooseFiles:NO];
+    [opanel beginSheetModalForWindow:_window completionHandler:^(NSInteger result) {
+        if (result == NSFileHandlingPanelOKButton) {
+            NSURL *pathUrl = [opanel URL];
+            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+            NSString *thePath = [pathUrl path];
+            [defaults setObject:thePath forKey:@"Path"];
+            [_pathLabel setStringValue:thePath];
+        }
+    }];
+}
+- (IBAction)jumpToFolder:(id)sender {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *storedPath = [defaults stringForKey:@"Path"];
+    [[NSWorkspace sharedWorkspace] openFile:storedPath];
+}
 @end

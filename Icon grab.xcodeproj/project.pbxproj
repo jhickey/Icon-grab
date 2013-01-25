@@ -13,6 +13,8 @@
 		BF81188416B2C7BF00F1B312 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = BF81188216B2C7BF00F1B312 /* Credits.rtf */; };
 		BF81188716B2C7BF00F1B312 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BF81188616B2C7BF00F1B312 /* AppDelegate.m */; };
 		BF81188A16B2C7BF00F1B312 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF81188816B2C7BF00F1B312 /* MainMenu.xib */; };
+		BF81189216B2C9E900F1B312 /* ImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF81189116B2C9E900F1B312 /* ImageView.m */; };
+		BF81189616B3109800F1B312 /* 1359162751_preview.png in Resources */ = {isa = PBXBuildFile; fileRef = BF81189516B3109800F1B312 /* 1359162751_preview.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,9 @@
 		BF81188516B2C7BF00F1B312 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BF81188616B2C7BF00F1B312 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		BF81188916B2C7BF00F1B312 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		BF81189016B2C9E900F1B312 /* ImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageView.h; sourceTree = "<group>"; };
+		BF81189116B2C9E900F1B312 /* ImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageView.m; sourceTree = "<group>"; };
+		BF81189516B3109800F1B312 /* 1359162751_preview.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1359162751_preview.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +51,7 @@
 		BF81186416B2C7BF00F1B312 = {
 			isa = PBXGroup;
 			children = (
+				BF81189516B3109800F1B312 /* 1359162751_preview.png */,
 				BF81187916B2C7BF00F1B312 /* Icon grab */,
 				BF81187216B2C7BF00F1B312 /* Frameworks */,
 				BF81187016B2C7BF00F1B312 /* Products */,
@@ -85,6 +91,8 @@
 				BF81188516B2C7BF00F1B312 /* AppDelegate.h */,
 				BF81188616B2C7BF00F1B312 /* AppDelegate.m */,
 				BF81188816B2C7BF00F1B312 /* MainMenu.xib */,
+				BF81189016B2C9E900F1B312 /* ImageView.h */,
+				BF81189116B2C9E900F1B312 /* ImageView.m */,
 				BF81187A16B2C7BF00F1B312 /* Supporting Files */,
 			);
 			path = "Icon grab";
@@ -156,6 +164,7 @@
 				BF81187E16B2C7BF00F1B312 /* InfoPlist.strings in Resources */,
 				BF81188416B2C7BF00F1B312 /* Credits.rtf in Resources */,
 				BF81188A16B2C7BF00F1B312 /* MainMenu.xib in Resources */,
+				BF81189616B3109800F1B312 /* 1359162751_preview.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,6 +177,7 @@
 			files = (
 				BF81188016B2C7BF00F1B312 /* main.m in Sources */,
 				BF81188716B2C7BF00F1B312 /* AppDelegate.m in Sources */,
+				BF81189216B2C9E900F1B312 /* ImageView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

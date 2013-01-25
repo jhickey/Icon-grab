@@ -11,5 +11,9 @@
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
 @property (assign) IBOutlet NSWindow *window;
+- (IBAction)saveButton:(id)sender;
+@property (weak) IBOutlet NSTextField *pathLabel;
+- (IBAction)jumpToFolder:(id)sender;
+
 
 @end
