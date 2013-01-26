@@ -12,29 +12,47 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSString *storedPath = [defaults stringForKey:@"Path"];
-    [_pathLabel setStringValue:storedPath];
+    [_pathLabel setStringValue:@""];
+    defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults objectForKey:@"Path"])
+    {
+        storedPath = [defaults stringForKey:@"Path"];
+        [_pathLabel setStringValue:storedPath];
+    }
+    else{
+        [self openWindow];
+    }
 }
 
 - (IBAction)saveButton:(id)sender {
+    [self openWindow];
+   }
+- (IBAction)jumpToFolder:(id)sender {
+    [[NSWorkspace sharedWorkspace] openFile:storedPath];
+}
+-(void)openWindow
+{
     NSOpenPanel *opanel = [NSOpenPanel openPanel];
-
+    
     [opanel setCanChooseDirectories:YES];
     [opanel setCanChooseFiles:NO];
+    [opanel setTitle:@"Choose where to save files"];
     [opanel beginSheetModalForWindow:_window completionHandler:^(NSInteger result) {
         if (result == NSFileHandlingPanelOKButton) {
             NSURL *pathUrl = [opanel URL];
-            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
             NSString *thePath = [pathUrl path];
             [defaults setObject:thePath forKey:@"Path"];
             [_pathLabel setStringValue:thePath];
         }
+        else if (result ==NSFileHandlingPanelCancelButton && !([defaults objectForKey:@"Path"]))
+        {
+            NSString *defaultFolder = [NSHomeDirectory() stringByAppendingString:@"/Desktop/"];
+            [defaults setObject:defaultFolder forKey:@"Path"];
+            [_pathLabel setStringValue:defaultFolder];
+            
+        }
+        storedPath = [defaults stringForKey:@"Path"];
     }];
-}
-- (IBAction)jumpToFolder:(id)sender {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSString *storedPath = [defaults stringForKey:@"Path"];
-    [[NSWorkspace sharedWorkspace] openFile:storedPath];
+
 }
 @end

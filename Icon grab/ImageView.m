@@ -14,15 +14,10 @@
     if ((NSDragOperationGeneric & [sender draggingSourceOperationMask])
 		== NSDragOperationGeneric)
     {
-        //this means that the sender is offering the type of operation we want
-        //return that we want the NSDragOperationGeneric operation that they
-		//are offering
         return NSDragOperationGeneric;
     }
     else
     {
-        //since they aren't offering the type of operation we want, we have
-		//to tell them we aren't interested
         return NSDragOperationNone;
     }
 }
@@ -33,9 +28,7 @@
 {
     NSPasteboard *paste = [sender draggingPasteboard];
 	
-	//gets the dragging-specific pasteboard from the sender
     NSArray *types = [NSArray arrayWithObjects:NSFilenamesPboardType, nil];
-	//a list of types that we can accept
     NSString *desiredType = [paste availableTypeFromArray:types];
     NSData *carriedData = [paste dataForType:desiredType];
 	
@@ -67,7 +60,6 @@
             
             if (nil == newImage)
             {
-                //we failed for some reason
                 NSRunAlertPanel(@"File Reading Error",
 								[NSString stringWithFormat:
 								 @"Failed to open the file at \"%@\"",
@@ -76,9 +68,7 @@
             }
             else
             {
-                //newImage is now a new valid image
 				[self setImage:smallImage];
-                //NSData *imageData = [NSData dataWithData:];
                 
                 
                 
@@ -95,23 +85,20 @@
                
                 NSData *imageData = [smallImage TIFFRepresentation];
                 NSBitmapImageRep *imageRep = [NSBitmapImageRep imageRepWithData:imageData];
-                NSDictionary *imageProps = [NSDictionary dictionaryWithObject:[NSNumber numberWithFloat:1.0] forKey:NSImageCompressionFactor];
+                NSDictionary *imageProps = [NSDictionary dictionaryWithObject:[NSNumber numberWithFloat:1.0]    forKey:NSImageCompressionFactor];
                 imageData = [imageRep representationUsingType:NSPNGFileType properties:imageProps];
                 [imageData writeToFile:pathWithFile atomically:NO];
       
-        
-
             }
   
         }
         else
         {
-            //this can't happen
             NSAssert(NO, @"This can't happen");
             return NO;
         }
     }
-    [self setNeedsDisplay:YES];    //redraw us with the new image
+    [self setNeedsDisplay:YES];
     return YES;
 }
 

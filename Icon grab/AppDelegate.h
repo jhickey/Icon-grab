@@ -9,11 +9,15 @@
 #import <Cocoa/Cocoa.h>
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
+{
+    NSString *storedPath;
+    NSUserDefaults *defaults;
+}
 
 @property (assign) IBOutlet NSWindow *window;
 - (IBAction)saveButton:(id)sender;
 @property (weak) IBOutlet NSTextField *pathLabel;
 - (IBAction)jumpToFolder:(id)sender;
-
+-(void)openWindow;
 
 @end
